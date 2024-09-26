@@ -1,5 +1,6 @@
 // GitHubのCSVファイルのURLを設定
-const csvUrl = 'https://github.com/inagaki335/iwashirasu/blob/main/test.csv';
+const csvUrl = 'https://raw.githubusercontent.com/inagaki335/iwashirasu/main/test.csv
+';
 
 // ページが読み込まれたときにCSVを取得
 fetch(csvUrl)

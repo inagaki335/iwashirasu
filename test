@@ -1,2 +1,25 @@
+<?php
+// 読み込むCSVファイルのパス
+$filename = 'bin/test.csv';
+
+// ファイルが存在するかチェック
+if (!file_exists($filename)) {
+    die('CSVファイルが見つかりませんでした。');
+}
+
+// ファイルを読み取り専用で開く
+$file = fopen($filename, 'r');
+
+// テキストをプレーンな形で出力するためのヘッダー
+header('Content-Type: text/plain');
+
+// CSVファイルの各行を読み込み、テキストとして出力
+while (($row = fgetcsv($file)) !== false) {
+    echo implode(',', $row) . "\n";
+}
+
+// ファイルを閉じる
+fclose($file);
+?>
 いわしらす
 

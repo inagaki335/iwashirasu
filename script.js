@@ -1,5 +1,5 @@
 // GitHubのCSVファイルのURLを設定
-const csvUrl = 'https://raw.githubusercontent.com/inagaki335/iwashirasu/main/テストエクセルファイル.xlsx';
+const csvUrl = 'https://raw.githubusercontent.com/inagaki335/iwashirasu/main/test.csv';
 
 // ページが読み込まれたときにCSVを取得
 fetch(csvUrl)

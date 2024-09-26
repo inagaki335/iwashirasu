@@ -1,6 +1,6 @@
 document.getElementById('loadCsvBtn').addEventListener('click', function() {
     // GitHubのCSVファイルのURL
-    const csvUrl = 'https://raw.githubusercontent.com/<ユーザー名>/<リポジトリ名>/main/<ファイル名>.csv';
+    const csvUrl = 'https://raw.githubusercontent.com/inagaki335/iwashirasu/main/test.csv';
 
     fetch(csvUrl)
         .then(response => {

@@ -2,45 +2,12 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>GitHubのエクセル読み込み</title>
-    <!-- deferを追加してライブラリを後から読み込む -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js" defer></script>
+    <title>GitHubのcsv読み込み</title>
 </head>
 <body>
-    <h1>GitHubからエクセルファイルを読み込む</h1>
+    <h1>GitHubからcsvファイルを読み込む</h1>
     <pre id="output"></pre>
 
-    <!-- deferを追加してスクリプトを後から実行 -->
-    <script defer>
-        window.addEventListener('load', () => {
-            // GitHubのエクセルファイルのURLを設定
-            const xlsxUrl = 'https://raw.githubusercontent.com/inagaki335/iwashirasu/main/テストエクセルファイル.xlsx';
-
-            // ページが読み込まれたときにExcelファイルを取得
-            fetch(xlsxUrl)
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('ネットワークエラー: ' + response.statusText);
-                    }
-                    return response.arrayBuffer(); // バイナリデータとして取得
-                })
-                .then(arrayBuffer => {
-                    // ArrayBufferをExcelとしてパース
-                    const data = new Uint8Array(arrayBuffer);
-                    const workbook = XLSX.read(data, { type: 'array' });
-
-                    // Excelの1つ目のシートを取得
-                    const sheetName = workbook.SheetNames[0];
-                    const worksheet = workbook.Sheets[sheetName];
-
-                    // シートの内容をテキスト形式で出力
-                    const csv = XLSX.utils.sheet_to_csv(worksheet);
-                    document.getElementById('output').textContent = csv;
-                })
-                .catch(error => {
-                    console.error('エラー:', error);
-                });
-        });
-    </script>
+    <script="https://raw.githubusercontent.com/inagaki335/iwashirasu/refs/heads/main/script.js"></script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 // GitHubのエクセルファイルのURLを設定
-const xlsxUrl = 'https://raw.githubusercontent.com/inagaki335/iwashirasu/main/テストエクセルファイル.xlsx';
+const xlsxUrl = 'https://docs.google.com/spreadsheets/d/1be_nciVbYqLlZ_msHzV_8QPRK8dHpx8waHmOlD-zixw/edit?gid=0#gid=0';
 
 // ページが読み込まれたときにExcelファイルを取得
 window.onload = function() {

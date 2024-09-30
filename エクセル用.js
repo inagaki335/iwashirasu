@@ -1,7 +1,7 @@
 // GitHubのエクセルファイルのURLを設定
 const xlsxUrl = 'https://raw.githubusercontent.com/inagaki335/iwashirasu/main/テストエクセルファイル.xlsx';
 
-// ページが読み込まれたときにCSVを取得
+// ページが読み込まれたときにExcelファイルを取得
 fetch(xlsxUrl)
     .then(response => {
         if (!response.ok) {
@@ -13,8 +13,8 @@ fetch(xlsxUrl)
         const workbook = XLSX.read(data); // Excelファイルを読み込む
         const sheetName = workbook.SheetNames[0]; // 最初のシートを取得
         const sheet = workbook.Sheets[sheetName]; // シートを取得
-        const csv = XLSX.utils.sheet_to_csv(sheet); // シートをCSVに変換
-        document.getElementById('output').textContent = csv; // CSVを表示
+        const htmlString = XLSX.utils.sheet_to_html(sheet); // シートをHTMLに変換
+        document.getElementById('output').innerHTML = htmlString; // HTMLを表示
     })
     .catch(error => {
         console.error('エラー:', error);

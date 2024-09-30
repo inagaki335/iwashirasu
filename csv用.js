@@ -1,14 +1,16 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <title>GitHubのcsv読み込み</title>
-</head>
-<body>
-    <h1>GitHubからcsvファイルを読み込む</h1>
-    <pre id="output"></pre>
+const csvUrl = 'https://raw.githubusercontent.com/inagaki335/iwashirasu/main/test.csv';
 
-    <!-- scriptタグのsrcを正しく指定 -->
-    <script src="https://raw.githubusercontent.com/inagaki335/iwashirasu/main/csv用.js"></script>
-</body>
-</html>
+fetch(csvUrl)
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('ネットワークエラー: ' + response.statusText);
+        }
+        return response.text(); // テキストとして取得
+    })
+    .then(csvText => {
+        console.log(csvText); // ここで取得したCSVデータをログに出力
+        document.getElementById('output').textContent = csvText; // テキストを表示
+    })
+    .catch(error => {
+        console.error('エラー:', error);
+    });

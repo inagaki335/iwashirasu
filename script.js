@@ -1,16 +1,10 @@
-// GitHubのcsvファイルのURLを設定
-const csvUrl = 'https://raw.githubusercontent.com/inagaki335/iwashirasu/main/test.csv';
+const csvUrl = 'https://api.github.com/repos/inagaki335/iwashirasu/contents/test.csv';
 
-// ページが読み込まれたときにCSVを取得
 fetch(csvUrl)
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('ネットワークエラー: ' + response.statusText);
-        }
-        return response.text(); // テキストとして取得
-    })
-    .then(csvText => {
-        document.getElementById('output').textContent = csvText; // テキストを表示
+    .then(response => response.json())  // GitHub APIはJSON形式で返す
+    .then(data => {
+        const content = atob(data.content); // Base64でエンコードされた内容をデコード
+        document.getElementById('output').textContent = content; // テキストを表示
     })
     .catch(error => {
         console.error('エラー:', error);

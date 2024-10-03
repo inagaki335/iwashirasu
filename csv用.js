@@ -8,7 +8,7 @@ fetch(csvUrl)
         return response.text(); // テキストとして取得
     })
     .then(csvText => {
-        console.log(csvText); // ここで取得したCSVデータをログに出力
+        console.log(csvText[0][1]); // ここで取得したCSVデータをログに出力
         document.getElementById('output').textContent = csvText; // テキストを表示
     })
     .catch(error => {

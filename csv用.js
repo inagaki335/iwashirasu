@@ -9,9 +9,13 @@ fetch(csvUrl)
     })
     .then(csvText => {
         const rows = csvText.split('\n').map(row => row.split(','));
-        const searchString = 'アシダカグモ'; // 検索する文字列を指定
-        const matchingRows = rows.filter(row => row[0] && row[0] === searchString);
-        
+        const searchString = 'アリ'.trim(); // スペースを削除
+
+        console.log(`Searching for: "${searchString}"`); // デバッグ用ログ
+
+        // 一列目のセルが完全一致する行を検索
+        const matchingRows = rows.filter(row => row[0] && row[0].trim() === searchString);
+
         const outputDiv = document.getElementById('output');
 
         if (matchingRows.length > 0) {

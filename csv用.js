@@ -9,7 +9,7 @@ fetch(csvUrl)
     })
     .then(csvText => {
         const rows = csvText.split('\n').map(row => row.split(','));
-        const searchString = 'アリ'; // 検索する文字列を指定
+        const searchString = 'アシダカグモ'; // 検索する文字列を指定
         const matchingRows = rows.filter(row => row[0] && row[0] === searchString);
         
         const outputDiv = document.getElementById('output');

@@ -12,12 +12,12 @@ fetch(csvUrl)
         const rows = csvText.split('\n').map(row => row.split(',')); // 各行をカンマで分割して配列にする
         
         // 検索する文字列
-        const searchString = 'アリ'; // ここを変更して検索する文字列を入力
+        const searchString = '検索したい文字列'; // ここを変更して検索する文字列を入力
         
         // 文字列を含む行を検索
         const matchingRows = rows.filter(row => row.some(cell => cell.includes(searchString)));
         
-        // 結果を表示
+        // 出力エリアの取得
 
         if (matchingRows.length > 0) {
             matchingRows.forEach(row => {

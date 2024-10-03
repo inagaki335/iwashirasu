@@ -18,8 +18,6 @@ fetch(csvUrl)
         const matchingRows = rows.filter(row => row.some(cell => cell.includes(searchString)));
         
         // 結果を表示
-        const outputDiv = document.getElementById('output');
-        outputDiv.innerHTML = ''; // 出力エリアをクリア
 
         if (matchingRows.length > 0) {
             matchingRows.forEach(row => {

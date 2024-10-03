@@ -5,25 +5,19 @@ fetch(csvUrl)
         if (!response.ok) {
             throw new Error('ネットワークエラー: ' + response.statusText);
         }
-        return response.text(); // テキストとして取得
+        return response.text();
     })
     .then(csvText => {
-        // CSVを行ごとに分割
-        const rows = csvText.split('\n').map(row => row.split(',')); // 各行をカンマで分割して配列にする
+        const rows = csvText.split('\n').map(row => row.split(','));
+        const searchString = 'アリ'; // 検索する文字列を指定
+        const matchingRows = rows.filter(row => row[0] && row[0].includes(searchString));
         
-        // 検索する文字列
-        const searchString = 'アリ'; // ここを変更して検索する文字列を入力
-        
-        // 文字列を含む行を検索
-        const matchingRows = rows.filter(row => row.some(cell => cell.includes(searchString)));
-        
-        // 結果を表示
         const outputDiv = document.getElementById('output');
 
         if (matchingRows.length > 0) {
             matchingRows.forEach(row => {
                 const p = document.createElement('p');
-                p.textContent = row.join(', '); // 行の内容をカンマで区切って表示
+                p.textContent = row.join(', ');
                 outputDiv.appendChild(p);
             });
         } else {

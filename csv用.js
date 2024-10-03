@@ -8,8 +8,15 @@ fetch(csvUrl)
         return response.text(); // テキストとして取得
     })
     .then(csvText => {
-        console.log(csvText[1][2]); // ここで取得したCSVデータをログに出力
-        document.getElementById('output').textContent = csvText; // テキストを表示
+        // CSVを行ごとに分割
+        const rows = csvText.split('\n').map(row => row.split(',')); // 各行をカンマで分割して配列にする
+        
+        // 例: 2行目の3列目のセルを取得（行と列は0から始まる）
+        const specificCell = rows[1][2];
+        console.log(specificCell); // セルの値をログに出力
+
+        // セルの値を表示
+        document.getElementById('output').textContent = specificCell;
     })
     .catch(error => {
         console.error('エラー:', error);

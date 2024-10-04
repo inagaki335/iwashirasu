@@ -6,12 +6,12 @@ fetch(csvUrl)
             throw new Error('ネットワークエラー: ' + response.statusText);
         }
         return response.text();
-    }) 
+    })
     .then(csvText => {
         const rows = csvText.split('\n').map(row => row.split(','));
         const searchString = 'アリ'.trim(); // スペースを削除
 
-        console.log(`Searching for: "${searchString}"`); // デバッグ用ログ
+        console.log(`検索ワード: "${searchString}"`); // デバッグ用ログ
 
         // 一列目のセルが完全一致する行を検索
         const matchingRows = rows.filter(row => row[0] && row[0].trim() === searchString);
@@ -21,7 +21,10 @@ fetch(csvUrl)
         if (matchingRows.length > 0) {
             matchingRows.forEach(row => {
                 const p = document.createElement('p');
-                p.textContent = row.join(', ');
+                
+                // ここで特定の列を出力（例：2列目 row[1]）
+                p.textContent = row[1]; 
+                
                 outputDiv.appendChild(p);
             });
         } else {

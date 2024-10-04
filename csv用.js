@@ -17,21 +17,24 @@ fetch(csvUrl)
         const matchingRows = rows.filter(row => row[0] && row[0].trim() === searchString);
         console.log('一致した行:', matchingRows.map(row => row)); // 各行のデータを表示
 
-        const outputDiv = document.getElementById('output');
+        for(let i = 1; i<4; i++){
 
-        if (matchingRows.length > 0) {
-            matchingRows.forEach(row => {
-                const p = document.createElement('p');
-                
-                // ここで特定の列を出力（例：2列目 row[1]）
-                p.textContent = row[2]; 
-                
-                outputDiv.appendChild(p);
-            });
-        } else {
-            outputDiv.textContent = '一致する行が見つかりませんでした。';
+            const outputDiv = document.getElementById('output');
+    
+            if (matchingRows.length > 0) {
+                matchingRows.forEach(row => {
+                    const p = document.createElement('p');
+                    
+                    // ここで特定の列を出力（例：2列目 row[1]）
+                    p.textContent = row[2]; 
+                    
+                    outputDiv.appendChild(p);
+                });
+            } else {
+                outputDiv.textContent = '一致する行が見つかりませんでした。';
+            }
+        })
+        .catch(error => {
+            console.error('エラー:', error);
+        });
         }
-    })
-    .catch(error => {
-        console.error('エラー:', error);
-    });

@@ -18,12 +18,12 @@ fetch(csvUrl)
         console.log('一致した行:', matchingRows.map(row => row)); // 各行のデータを表示
 
         if (matchingRows.length > 0) {
-            matchingRows.forEach(row => {
-                // 各列に対応する出力エリアへ出力
+            // 一致した行が存在する場合の処理
+            matchingRows.forEach((row, rowIndex) => {
                 row.forEach((cell, index) => {
-                    const outputDiv = document.getElementById(`output${index + 1}`); // output1, output2など
-
+                    const outputDiv = document.getElementById(`output${index + 1}`);
                     if (outputDiv) {
+                        // 行のインデックスを考慮して出力
                         const p = document.createElement('p');
                         p.textContent = cell; // 各セルのデータを表示
                         outputDiv.appendChild(p);
@@ -31,13 +31,13 @@ fetch(csvUrl)
                 });
             });
         } else {
-            for (let i = 1; i <= row[0].length; i++) {
-                const outputDiv = document.getElementById(`output${i}`);
-                if (outputDiv) {
-                    outputDiv.textContent = '一致する行が見つかりませんでした。';
-                }
+            // 一致した行が存在しない場合
+            const outputDiv = document.getElementById('output1'); // 一つのエリアにメッセージを表示
+            if (outputDiv) {
+                outputDiv.textContent = '一致する行が見つかりませんでした。';
             }
         }
+
     })
     .catch(error => {
         console.error('エラー:', error);

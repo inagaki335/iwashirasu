@@ -21,7 +21,7 @@ fetch(csvUrl)
             // 一致した行が存在する場合の処理
             matchingRows.forEach((row, rowIndex) => {
                 row.forEach((cell, index) => {
-                    const outputDiv = document.getElementById(`output${index}`);
+                    const outputDiv = document.getElementById(`output${index+1}`);
                     if (outputDiv) {
                         // 行のインデックスを考慮して出力
                         const p = document.createElement('p');

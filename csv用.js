@@ -15,7 +15,7 @@ fetch(csvUrl)
 
         // 一列目のセルが完全一致する行を検索
         const matchingRows = rows.filter(row => row[0] && row[0].trim() === searchString);
-        console.log('一致した行:', matchingRows);
+        console.log('一致した行:', matchingRows.map(row => row)); // 各行のデータを表示
 
         const outputDiv = document.getElementById('output');
 

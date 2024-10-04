@@ -17,9 +17,8 @@ fetch(csvUrl)
         const matchingRows = rows.filter(row => row[0] && row[0].trim() === searchString);
         console.log('一致した行:', matchingRows.map(row => row)); // 各行のデータを表示
 
-        for(let i = 1; i<4; i++){
-
-            const outputDiv = document.getElementById('output${i}');
+        for (let i = 1; i < 4; i++) {
+            const outputDiv = document.getElementById(`output${i}`); // 修正: バッククォートを使用
     
             if (matchingRows.length > 0) {
                 matchingRows.forEach(row => {
@@ -33,8 +32,8 @@ fetch(csvUrl)
             } else {
                 outputDiv.textContent = '一致する行が見つかりませんでした。';
             }
-        })
-        .catch(error => {
-            console.error('エラー:', error);
-        });
         }
+    })
+    .catch(error => {
+        console.error('エラー:', error);
+    });

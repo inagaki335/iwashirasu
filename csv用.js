@@ -25,7 +25,7 @@ fetch(csvUrl)
                     const p = document.createElement('p');
                     
                     // ここで特定の列を出力（例：2列目 row[1]）
-                    p.textContent = row[2]; 
+                    p.textContent = row[i]; 
                     
                     outputDiv.appendChild(p);
                 });

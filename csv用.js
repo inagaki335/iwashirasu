@@ -9,7 +9,7 @@ fetch(csvUrl)
     })
     .then(csvText => {
         const rows = csvText.split('\n').map(row => row.split(','));
-        const searchString = 'アリ'.trim(); // スペースを削除
+        const searchString = 'アブラムシ'.trim(); // スペースを削除
 
         console.log(`検索ワード: "${searchString}"`); // デバッグ用ログ
 

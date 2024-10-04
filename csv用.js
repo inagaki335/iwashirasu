@@ -19,7 +19,7 @@ fetch(csvUrl)
 
         for(let i = 1; i<4; i++){
 
-            const outputDiv = document.getElementById('output');
+            const outputDiv = document.getElementById('output${i}');
     
             if (matchingRows.length > 0) {
                 matchingRows.forEach(row => {

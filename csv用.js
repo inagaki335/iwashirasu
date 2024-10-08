@@ -1,4 +1,5 @@
 const csvUrl = 'https://raw.githubusercontent.com/inagaki335/iwashirasu/refs/heads/main/%E8%99%AB%E3%83%87%E3%83%BC%E3%82%BF1.csv';
+const word = "アブラムシ";
 
 fetch(csvUrl)
     .then(response => {
@@ -9,7 +10,7 @@ fetch(csvUrl)
     })
     .then(csvText => {
         const rows = csvText.split('\n').map(row => row.split(','));
-        const searchString = 'アブラムシ'.trim(); // スペースを削除
+        const searchString = word.trim(); // スペースを削除
 
         console.log(`検索ワード: "${searchString}"`); // デバッグ用ログ
 

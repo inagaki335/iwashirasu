@@ -43,3 +43,6 @@ fetch(csvUrl)
     .catch(error => {
         console.error('エラー:', error);
     });
+
+window.addEventListener('DOMContentLoaded',function() {
+    const imagePath = 

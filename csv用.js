@@ -48,4 +48,4 @@ window.addEventListener('DOMContentLoaded',function() {
     const imgPath = '虫ドット/word.png';
     const imgElement = document.getElementById('image1');
     imgElement.src = imgPath;
-};
+});

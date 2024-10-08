@@ -45,4 +45,4 @@ fetch(csvUrl)
     });
 
 window.addEventListener('DOMContentLoaded',function() {
-    const imagePath = 
+    const imagePath = '虫ドット/word.png';

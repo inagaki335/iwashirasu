@@ -45,7 +45,7 @@ fetch(csvUrl)
     });
 
 window.addEventListener('DOMContentLoaded', function() {
-    const imgPath = './蜂.jpg';
+    const imgPath = './虫ドット/ハエトリグモ.jpg';
     const imgElement = document.getElementById('image1');
     imgElement.src = imgPath;
 });

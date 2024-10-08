@@ -45,7 +45,7 @@ fetch(csvUrl)
     });
 
 window.addEventListener('DOMContentLoaded', function() {
-    const imgPath = 'https://raw.githubusercontent.com/inagaki335/iwashirasu/main/%E8%99%AB%E3%83%89%E3%83%83%E3%83%88/word.png';
+    const imgPath = 'https://raw.githubusercontent.com/inagaki335/iwashirasu/main/%E8%99%AB%E3%83%89%E3%83%83%E3%83%88/.ハエトリグモ.png';
     const imgElement = document.getElementById('image1');
     imgElement.src = imgPath;
 });

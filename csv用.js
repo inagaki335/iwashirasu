@@ -45,7 +45,7 @@ fetch(csvUrl)
     });
 
 window.addEventListener('DOMContentLoaded', function() {
-    const imgPath = '虫ドット/蜂.jpg';
+    const imgPath = '虫ドット/蜂.png';
     const imgElement = document.getElementById('image1');
     imgElement.src = imgPath;
 });

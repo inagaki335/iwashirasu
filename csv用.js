@@ -1,4 +1,5 @@
 const csvUrl = 'https://raw.githubusercontent.com/inagaki335/iwashirasu/refs/heads/main/%E8%99%AB%E3%83%87%E3%83%BC%E3%82%BF%20(%E4%BB%AE).csv';
+const page = window.location.pathname.split('/').pop();
 // URLのクエリパラメータから情報を取得
 const params = new URLSearchParams(window.location.search);
 const name = params.get('name');

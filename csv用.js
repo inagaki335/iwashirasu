@@ -1,55 +1,48 @@
 const csvUrl = 'https://raw.githubusercontent.com/inagaki335/iwashirasu/refs/heads/main/%E8%99%AB%E3%83%87%E3%83%BC%E3%82%BF%20(%E4%BB%AE).csv';
-const page = window.location.pathname.split('/').pop();
-// URLのクエリパラメータから情報を取得
 const params = new URLSearchParams(window.location.search);
 const name = params.get('name');
 
-fetch(csvUrl)
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('ネットワークエラー: ' + response.statusText);
-        }
-        return response.text();
-    })
-    .then(csvText => {
-        const rows = csvText.split('\n').map(row => row.split(','));
-        const searchString = name.trim(); // スペースを削除
+if (name) {
+    const searchString = name.trim(); // スペースを削除
 
-        console.log(`検索ワード: "${searchString}"`); // デバッグ用ログ
-
-        // 一列目のセルが完全一致する行を検索
-        const matchingRows = rows.filter(row => row[0] && row[0].trim() === searchString);
-        console.log('一致した行:', matchingRows.map(row => row)); // 各行のデータを表示
-
-        if (matchingRows.length > 0) {
-            // 一致した行が存在する場合の処理
-            matchingRows.forEach((row, rowIndex) => {
-                row.forEach((cell, index) => {
-                    const outputDiv = document.getElementById(`output${index+1}`);
-                    if (outputDiv) {
-                        // 行のインデックスを考慮して出力
-                        const p = document.createElement('p');
-                        p.textContent = cell; // 各セルのデータを表示
-                        outputDiv.appendChild(p);
-                    }
-                });
-            });
-        } else {
-            // 一致した行が存在しない場合
-            const outputDiv = document.getElementById('output1'); // 一つのエリアにメッセージを表示
-            if (outputDiv) {
-                outputDiv.textContent = '一致する行が見つかりませんでした。';
+    fetch(csvUrl)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('ネットワークエラー: ' + response.statusText);
             }
-        }
+            return response.text();
+        })
+        .then(csvText => {
+            const rows = csvText.split('\n').map(row => row.split(','));
 
-    })
-    .catch(error => {
-        console.error('エラー:', error);
-    });
+            // 一致する行を検索
+            const matchingRows = rows.filter(row => row[0] && row[0].trim() === searchString);
 
-window.addEventListener('DOMContentLoaded', function() {
-    const imgPath = '虫どっと/${name}.jpg';
-
-    const imgElement = document.getElementById('image1');
-    imgElement.src = imgPath;
-});
+            if (matchingRows.length > 0) {
+                matchingRows.forEach((row, rowIndex) => {
+                    row.forEach((cell, index) => {
+                        const outputDiv = document.getElementById(`output${index+1}`);
+                        if (outputDiv) {
+                            const p = document.createElement('p');
+                            p.textContent = cell; // 各セルのデータを表示
+                            outputDiv.appendChild(p);
+                        }
+                    });
+                });
+            } else {
+                const outputDiv = document.getElementById('output1');
+                if (outputDiv) {
+                    outputDiv.textContent = '一致する行が見つかりませんでした。';
+                }
+            }
+        })
+        .catch(error => {
+            console.error('エラー:', error);
+        });
+} else {
+    console.error('クエリパラメータ "name" が指定されていません。');
+    const outputDiv = document.getElementById('output1');
+    if (outputDiv) {
+        outputDiv.textContent = 'クエリパラメータ "name" が指定されていません。';
+    }
+}

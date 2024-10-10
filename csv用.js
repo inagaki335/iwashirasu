@@ -1,5 +1,5 @@
 const csvUrl = 'https://raw.githubusercontent.com/inagaki335/iwashirasu/refs/heads/main/%E8%99%AB%E3%83%87%E3%83%BC%E3%82%BF%20(%E4%BB%AE).csv';
-const word = "ハエトリグモ";
+const word = "アシダカグモ";
 
 fetch(csvUrl)
     .then(response => {
@@ -45,7 +45,7 @@ fetch(csvUrl)
     });
 
 window.addEventListener('DOMContentLoaded', function() {
-    const imgPath = '虫ドット/蜂.jpg';
+    const imgPath = '虫どっと/アシダカ.jpg';
     const imgElement = document.getElementById('image1');
     imgElement.src = imgPath;
 });

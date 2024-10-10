@@ -47,7 +47,7 @@ fetch(csvUrl)
     });
 
 window.addEventListener('DOMContentLoaded', function() {
-    const imgPath = '虫どっと/アリ.jpg';
+    const imgPath = '虫どっと/アシダカグモ.jpg';
 
     const imgElement = document.getElementById('image1');
     imgElement.src = imgPath;

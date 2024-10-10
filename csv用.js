@@ -3,6 +3,12 @@ const params = new URLSearchParams(window.location.search);
 const name = params.get('name');
 
 if (name) {
+    console.log(`取得したname: ${name}`); // デバッグ用
+} else {
+    console.error('クエリパラメータ "name" が取得できませんでした。');
+}
+
+if (name) {
     const searchString = name.trim(); // スペースを削除
 
     fetch(csvUrl)

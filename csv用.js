@@ -45,7 +45,8 @@ fetch(csvUrl)
     });
 
 window.addEventListener('DOMContentLoaded', function() {
-    const imgPath = '虫どっと/アシダカグモ.jpg';
+    const imgPath = 'https://raw.githubusercontent.com/inagaki335/iwashirasu/main/虫どっと/アシダカグモ.jpg';
+
     const imgElement = document.getElementById('image1');
     imgElement.src = imgPath;
 });

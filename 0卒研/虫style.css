@@ -80,6 +80,7 @@ nav{
     padding-left: 0;
     list-style: none;
     color: #736234;
+    width: auto;
 }
 
 .insect_list li {
